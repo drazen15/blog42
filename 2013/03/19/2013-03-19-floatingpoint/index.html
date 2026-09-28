@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.42.xyz","root":"/","images":"/images","scheme":"Muse","darkmode":"ture","version":"8.20.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在《learn python the hard way》的第三章中遇到了浮点数的概念。Google了一下，作为浮点数的入门 什么是浮点数相对于定点数(常用来表示整数和纯小数,如:8,0.6等等),浮点数能够表示带小数部分的数字(如:12.34,939001.32,0.00023,8.0等).定点数的缺点在于其形式过于僵硬,固定的小数点位置决定了固定位数的整数部分和小数部分,不利于同时表达特别大或者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浮点数入门">
+<meta property="og:url" content="https://blog.42.xyz/2013/03/19/2013-03-19-floatingpoint/index.html">
+<meta property="og:site_name" content="钢铁是怎样没有炼成的">
+<meta property="og:description" content="在《learn python the hard way》的第三章中遇到了浮点数的概念。Google了一下，作为浮点数的入门 什么是浮点数相对于定点数(常用来表示整数和纯小数,如:8,0.6等等),浮点数能够表示带小数部分的数字(如:12.34,939001.32,0.00023,8.0等).定点数的缺点在于其形式过于僵硬,固定的小数点位置决定了固定位数的整数部分和小数部分,不利于同时表达特别大或者">
+<meta property="og:locale">
+<meta property="article:published_time" content="2013-03-19T13:34:00.000Z">
+<meta property="article:modified_time" content="2022-08-05T07:56:10.026Z">
+<meta property="article:author" content="Roy Wang">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Code">
+<meta property="article:tag" content="Floating Point">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.42.xyz/2013/03/19/2013-03-19-floatingpoint/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"https://blog.42.xyz/2013/03/19/2013-03-19-floatingpoint/","path":"2013/03/19/2013-03-19-floatingpoint/","title":"浮点数入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>浮点数入门 | 钢铁是怎样没有炼成的</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">钢铁是怎样没有炼成的</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">什么都做不好，图书馆管理员，废柴，悲观主义者</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">758</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">413</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Roy Wang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Roy Wang</p>
+  <div class="site-description" itemprop="description">80后，在上海、杭州、苏州</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">413</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">758</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://blog.42.xyz/2013/03/19/2013-03-19-floatingpoint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Roy Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="钢铁是怎样没有炼成的">
+      <meta itemprop="description" content="80后，在上海、杭州、苏州">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="浮点数入门 | 钢铁是怎样没有炼成的">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浮点数入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2013-03-19 21:34:00" itemprop="dateCreated datePublished" datetime="2013-03-19T21:34:00+08:00">2013-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在<a target="_blank" rel="noopener" href="http://learnpythonthehardway.org/">《learn python the hard way》</a>的第三章中遇到了浮点数的概念。Google了一下，作为浮点数的入门</p>
+<h3 id="什么是浮点数"><a href="#什么是浮点数" class="headerlink" title="什么是浮点数"></a>什么是浮点数</h3><p>相对于定点数(常用来表示整数和纯小数,如:<code>8</code>,<code>0.6</code>等等),浮点数能够表示带小数部分的数字(如:<code>12.34</code>,<code>939001.32</code>,<code>0.00023</code>,<code>8.0</code>等).<br>定点数的缺点在于其形式过于僵硬,固定的小数点位置决定了固定位数的整数部分和小数部分,不利于同时表达特别大或者特别小的数字.而浮点数很好的解决了这一问题,计算机将浮点数分成两部分存储,一部分表示值,另一部分用于对值进行放大或者缩小.因此浮点数可以表示小数值,非常大和非常小的数值.</p>
+<h3 id="浮点数的表示方法"><a href="#浮点数的表示方法" class="headerlink" title="浮点数的表示方法"></a>浮点数的表示方法</h3><p>C++中浮点数有两种表示方法:</p>
+<p><strong>标准小数点表示法</strong></p>
+<pre><code>12.34			//floating-point
+939001.32		//floating-point       
+0.00023			//floating-point
+8.0				//floating-point
+</code></pre>
+<p><strong>E表示法</strong></p>
+<p>3.45E6是一个用E表示法表示的浮点数,这指的是3.45与1000000相乘的结果;E6指的是10的6次方,因此3.45E6表示的是3450000,6被称为指数,3.45被称为尾数.E表示法确保数字以浮点格式存储,数字中没有空格,指数可以是整数也可以是负数,浮点数也可以为负数.</p>
+<pre><code>2.52e+8				//can use E or e, + is optional
+8.33E-4	 			//exponent can be negative
+7E5					//same as 7.0E+05
+-18.32e`13			//can have + or - sign in front
+7.123e12 			//US public debt, early 2004
+5.98E24 			//mass of earth in kilograms
+</code></pre>
+<p>目前对于浮点数就了解这么多,再深入的关于浮点数的精度,与二进制的转换,浮点类型等,后面接触到的话再继续学习.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Code/" rel="tag"># Code</a>
+              <a href="/tags/Floating-Point/" rel="tag"># Floating Point</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2013/03/18/2013-03-18-tuisongxitong/" rel="prev" title="移动应用推送">
+                  <i class="fa fa-angle-left"></i> 移动应用推送
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2013/03/20/2013-03-20-bianlun/" rel="next" title="辩论七律">
+                  辩论七律 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Roy Wang</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
