@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">770</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">418</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">773</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">419</span></a></li>
   </ul>
 </nav>
 
@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">418</span>
+          <span class="site-state-item-count">419</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -136,7 +136,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">770</span>
+        <span class="site-state-item-count">773</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -153,6 +153,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.42.xyz/2013/03/19/2013-03-19-floatingpoint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Roy Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="钢铁是怎样没有炼成的">
+      <meta itemprop="description" content="80后，在上海、杭州、苏州">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 钢铁是怎样没有炼成的">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2013/03/19/2013-03-19-floatingpoint/" class="post-title-link" itemprop="url">浮点数入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2013-03-19 21:34:00" itemprop="dateCreated datePublished" datetime="2013-03-19T21:34:00+08:00">2013-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在<a target="_blank" rel="noopener" href="http://learnpythonthehardway.org/">《learn python the hard way》</a>的第三章中遇到了浮点数的概念。Google了一下，作为浮点数的入门</p>
+<h3 id="什么是浮点数"><a href="#什么是浮点数" class="headerlink" title="什么是浮点数"></a>什么是浮点数</h3><p>相对于定点数(常用来表示整数和纯小数,如:<code>8</code>,<code>0.6</code>等等),浮点数能够表示带小数部分的数字(如:<code>12.34</code>,<code>939001.32</code>,<code>0.00023</code>,<code>8.0</code>等).<br>定点数的缺点在于其形式过于僵硬,固定的小数点位置决定了固定位数的整数部分和小数部分,不利于同时表达特别大或者特别小的数字.而浮点数很好的解决了这一问题,计算机将浮点数分成两部分存储,一部分表示值,另一部分用于对值进行放大或者缩小.因此浮点数可以表示小数值,非常大和非常小的数值.</p>
+<h3 id="浮点数的表示方法"><a href="#浮点数的表示方法" class="headerlink" title="浮点数的表示方法"></a>浮点数的表示方法</h3><p>C++中浮点数有两种表示方法:</p>
+<p><strong>标准小数点表示法</strong></p>
+<pre><code>12.34			//floating-point
+939001.32		//floating-point       
+0.00023			//floating-point
+8.0				//floating-point
+</code></pre>
+<p><strong>E表示法</strong></p>
+<p>3.45E6是一个用E表示法表示的浮点数,这指的是3.45与1000000相乘的结果;E6指的是10的6次方,因此3.45E6表示的是3450000,6被称为指数,3.45被称为尾数.E表示法确保数字以浮点格式存储,数字中没有空格,指数可以是整数也可以是负数,浮点数也可以为负数.</p>
+<pre><code>2.52e+8				//can use E or e, + is optional
+8.33E-4	 			//exponent can be negative
+7E5					//same as 7.0E+05
+-18.32e`13			//can have + or - sign in front
+7.123e12 			//US public debt, early 2004
+5.98E24 			//mass of earth in kilograms
+</code></pre>
+<p>目前对于浮点数就了解这么多,再深入的关于浮点数的精度,与二进制的转换,浮点类型等,后面接触到的话再继续学习.</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -961,104 +1057,6 @@
 <p>当时就泪流满面，老大们，我们不是在上学啊，占用我们的休息时间来彰显公司的伟大还不够，还要我们谈感想！ </p>
 <p>其实公司很多时候都流连于表面的现象：下班晚的同学会得到奖金（不管他是下班后在公司做什么，哪怕是上网玩游戏），早走的同学注定不会得到任何奖励（哪怕你的工作效率高其他人几倍，但由于你下班后走的早，所以抱歉），而且领导对待有能力的同事的方法是不给奖金、不给提升，美其名曰：这是对你的激励（领导的原话）。唉，公司的文化直观重要啊。还好我知道自己要的是什么，否则肯定迷失掉。  </p>
 <p>目测本周的总结会出现一片的抒情散文。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.42.xyz/2013/01/11/2013-01-11-suisuinian/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Roy Wang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="钢铁是怎样没有炼成的">
-      <meta itemprop="description" content="80后，在上海、杭州、苏州">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 钢铁是怎样没有炼成的">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2013/01/11/2013-01-11-suisuinian/" class="post-title-link" itemprop="url">2013-01-11 碎碎念</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2013-01-11 14:26:00" itemprop="dateCreated datePublished" datetime="2013-01-11T14:26:00+08:00">2013-01-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>元旦的时候买了iPhone 5，果然很薄很轻，上周一星期的时间，再看iPod Touch 4就像一个矮胖子。有人说iPhone 5太贵了，如果iPhone 5带给你的价值远远超过他的售价的话，还是非常值得的。就像一本200页的书卖200元，肯定很多人说坑爹，但是如果告诉你，读了这本书，你的工资最起码一个月上涨2K，估计大家一窝蜂的都去买了。</p>
-<p>买iPhone 5的时候，顺便在营业厅办了一张一年合约的联通3G卡，每月月租66元，300M流量。结果回来发现，采用了一天，就走了60M的流量。我已经很小心了，关闭了所有不必要的后台进程，按照这个进度，300M根本就是杯水车薪。而同事在某宝上购买的联通3G卡一个月只要18元就600M流量。<br><strong>我顶你个肺的联通！！！</strong>  </p>
-<p>所以我当时马上决定换掉这张卡。打电话到10010，提出了我的想法：  </p>
-<ul>
-<li>停掉目前这张卡,重新在淘宝上买不实名,流量更多的卡  </li>
-<li>开通流量叠加服务</li>
-</ul>
-<p>客服对我的回答是:</p>
-<ul>
-<li>我的卡是签了一年的合约,中间不能变更服务,所以不能注销,也不能办理停机保号。</li>
-<li>新入网的用户不能不理流量叠加服务，半年之后才可以办理。</li>
-</ul>
-<p>客服提出的解决方案是：</p>
-<ul>
-<li>将66元的套餐升级，可以获得更多的流量。比如128的套餐、256的套餐什么的。</li>
-<li>除了升级套餐之外没有其他的方法了。</li>
-</ul>
-<p><strong>联通你是想钱想疯了吧！！！</strong><br>一年合约期不能办理任何的变更，除了升级套餐！<br>我投诉了这个合约，稍后受理投诉的部门打电话过来表示这个合约已经签订没有办法更改，我说这是霸王条款，我签合约表示我接受你的服务，但是我有权利随时终止你的服务。联通的回答是：<strong>我们就是这样的。</strong>  </p>
-<p>稍后的时候重新给10010打电话，我没有提自己因为嫌流量少要办理停卡，而是说因为工作需要到外地，所以想注销这张3G卡，客服回答让我到客户服务中心去协商解决。我明天就过去，估摸着这次应该可以退卡了吧。  </p>
-<hr>
-<p>这个周末的时候还准备投诉电信强制弹出广告的事情，网上已经有不少成功的例子了。<br>自己的合法权益要靠自己去争取，去保护。</p>
 
       
     </div>
