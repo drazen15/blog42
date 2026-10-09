@@ -86,7 +86,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">773</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">420</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">774</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">421</span></a></li>
   </ul>
 </nav>
 
@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">420</span>
+          <span class="site-state-item-count">421</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -136,7 +136,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">773</span>
+        <span class="site-state-item-count">774</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -153,6 +153,98 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.42.xyz/2023/08/17/2023-08-17-chatglm-6b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Roy Wang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="钢铁是怎样没有炼成的">
+      <meta itemprop="description" content="80后，在上海、杭州、苏州">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 钢铁是怎样没有炼成的">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/08/17/2023-08-17-chatglm-6b/" class="post-title-link" itemprop="url">在 Macbook 上运行 ChatGLM-6B</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-08-17 16:29:00" itemprop="dateCreated datePublished" datetime="2023-08-17T16:29:00+08:00">2023-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Code/" itemprop="url" rel="index"><span itemprop="name">Code</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="克隆-ChatGLM-6B-仓库"><a href="#克隆-ChatGLM-6B-仓库" class="headerlink" title="克隆 ChatGLM-6B 仓库"></a>克隆 ChatGLM-6B 仓库</h3><p><code>git clone https://github.com/THUDM/ChatGLM-6B</code></p>
+<h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><p><code>cd ChatGLM-6B</code><br><code>python3 -m venv .venv</code></p>
+<h3 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h3><p><code>source .venv/bin/activate</code></p>
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p><code>pip install -r requirements.txt</code><br><code># 安装 PyTorch， 使用 MPS 后端来在 Mac 的 GPU 上运行</code><br><code>pip install --pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu</code></p>
+<h3 id="下载模型"><a href="#下载模型" class="headerlink" title="下载模型"></a>下载模型</h3><p><code>cd .. </code><br><code>git clone https://huggingface.co/THUDM/chatglm-6b chatgml-6b-model</code></p>
+<h3 id="修改代码使用-MPS-后端和下载的好的模型"><a href="#修改代码使用-MPS-后端和下载的好的模型" class="headerlink" title="修改代码使用 MPS 后端和下载的好的模型"></a>修改代码使用 MPS 后端和下载的好的模型</h3><p>修改 webapp.py 文件。</p>
+<ol>
+<li>将 <code>.cuda()</code> 改为 <code>.to(&quot;mps&quot;)</code></li>
+<li>将模型和 tokenizer 的路径改为 huggingface 上克隆下来的 chatglm-6b 仓库本地路径。下面我的例子中，本地路径为 <code>/Users/roy/git/chatgml-6b-model</code>。</li>
+</ol>
+<p><code>-tokenizer = AutoTokenizer.from_pretrained(&quot;THUDM/chatglm-6b&quot;,trust_remote_code=True)</code></p>
+<p><code>-model = AutoModel.from_pretrained(&quot;THUDM/chatglm-6b&quot;,trust_remote_code=True).half().cuda()</code></p>
+<p><code>+tokenizer = AutoTokenizer.from_pretrained(  </code><br><code>+    &quot;/Users/eson/git/chatgml-6b-model&quot;, trust_remote_code=True </code><br><code>+)  </code><br><code>+model = (  </code><br><code>+    AutoModel.from_pretrained(  </code><br><code>+        &quot;/Users/eson/git/chatgml-6b-model&quot;, trust_remote_code=True  </code><br><code>+    )  </code><br><code>+    .half()  </code><br><code>+    .to(&quot;mps&quot;)  </code><br><code>+)</code></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>&#96;python webapp.py|</p>
+<p>这将会在本地启动一个 web 服务，会自动打开浏览器。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -903,86 +995,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.42.xyz/2023/03/05/2023-03-05-day508/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Roy Wang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="钢铁是怎样没有炼成的">
-      <meta itemprop="description" content="80后，在上海、杭州、苏州">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 钢铁是怎样没有炼成的">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/03/05/2023-03-05-day508/" class="post-title-link" itemprop="url">Day 508</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2023-03-05 16:54:00" itemprop="dateCreated datePublished" datetime="2023-03-05T16:54:00+08:00">2023-03-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Life/" itemprop="url" rel="index"><span itemprop="name">Life</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>1000天了！<br><img src="/images/dudu04.jpeg" alt="嘟嘟"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/42/">42</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/20/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/43/">43</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
